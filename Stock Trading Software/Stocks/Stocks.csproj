@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{018D2434-4091-4954-8C9E-976EAD63E0AD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Stocks</RootNamespace>
+    <AssemblyName>Stocks</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.10.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionEnum.cs" />
+    <Compile Include="Bar.cs" />
+    <Compile Include="ConfigReader.cs" />
+    <Compile Include="ConsistencyTypesEnum.cs" />
+    <Compile Include="Consitency\ConsistencyEvent.cs" />
+    <Compile Include="Contract.cs" />
+    <Compile Include="DataCollector.cs" />
+    <Compile Include="DBInputOutput.cs" />
+    <Compile Include="EmailSender.cs" />
+    <Compile Include="Events\EventAbst.cs" />
+    <Compile Include="Events\OrderCancelFailedEvent.cs" />
+    <Compile Include="Events\OrderCancelSucceededEvent.cs" />
+    <Compile Include="Events\OrderFailedEvent.cs" />
+    <Compile Include="Events\OrderMoveFailedEvent.cs" />
+    <Compile Include="Events\OrderMoveSucceededEvent.cs" />
+    <Compile Include="Events\OrderSucceededEvent.cs" />
+    <Compile Include="Events\SetMyOrderEvent.cs" />
+    <Compile Include="Events\UpdateOrderEvent.cs" />
+    <Compile Include="Events\UpdatePositionEvent.cs" />
+    <Compile Include="ExcelReader.cs" />
+    <Compile Include="ExceptionImportanceLevel.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogWriter.cs" />
+    <Compile Include="OpenOrdersInfo.cs" />
+    <Compile Include="Order.cs" />
+    <Compile Include="OrderTypeEnum.cs" />
+    <Compile Include="PortfolioManager.cs" />
+    <Compile Include="PositionInfo.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Server.cs" />
+    <Compile Include="ServerTime.cs" />
+    <Compile Include="SessionTypeEnum.cs" />
+    <Compile Include="SmartException.cs" />
+    <Compile Include="Strategies\ContrTrendStrat.cs" />
+    <Compile Include="Strategies\MXI_Trend.cs" />
+    <Compile Include="Strategies\UJPY_Trend.cs" />
+    <Compile Include="Strategies\SILV_CTrend.cs" />
+    <Compile Include="Strategies\GAZR_CTrend.cs" />
+    <Compile Include="Strategies\GOLD_CTrend.cs" />
+    <Compile Include="Strategies\HYDR_CTrend.cs" />
+    <Compile Include="Strategies\GMKR_Trend.cs" />
+    <Compile Include="Strategies\RTKM_CTrend.cs" />
+    <Compile Include="Strategies\TATN_CTrend.cs" />
+    <Compile Include="Strategies\SBRF_Trend.cs" />
+    <Compile Include="Strategies\SBPR_CTrend.cs" />
+    <Compile Include="Strategies\ROSN_CTrend.cs" />
+    <Compile Include="Strategies\MOEX_CTrend.cs" />
+    <Compile Include="Strategies\VTBR_CTrend.cs" />
+    <Compile Include="Strategies\MGNT_CTrend.cs" />
+    <Compile Include="Strategies\Si_Trend.cs" />
+    <Compile Include="Strategies\StrategyAbst.cs" />
+    <Compile Include="StrategyFactory.cs" />
+    <Compile Include="StrategyState.cs" />
+    <Compile Include="Strategies\TrendStrat.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="SmartCOM3Lib">
+      <Guid>{8252879C-6E32-4322-A38D-8EBA54E52595}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="STCLIENTLib">
+      <Guid>{92AD68AA-17E0-11D1-B230-00C04FB9473F}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
